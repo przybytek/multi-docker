@@ -13,7 +13,9 @@ services:
     - docker build -t przybytek/multi-nginx ./nginx
     - docker build -t przybytek/multi-server ./server
     - docker build -t przybytek/multi-worker ./worker
+    # Log in to docker
     - ECHO "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+    # Push to docker
     - docker push przybytek/multi-client
     - docker push przybytek/multi-nginx
     - docker push przybytek/multi-server
